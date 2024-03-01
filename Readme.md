@@ -11,25 +11,25 @@
 
 ## Compilar e executar
 
-```powershel
+```powershell
     ./build.ps1 --all
 ````
 
 ## Compilar
 
-```powershel
+```powershell
     ./build.ps1 --compile
 ````
 
 ## Run Kernel mode
 
-```powershel
+```powershell
     ./build.ps1 --runkernelmode
 ````
 
 ## run Iso
 
-```powershel
+```powershell
     ./build.ps1 --runkerneliso
 ````
 
