@@ -1,6 +1,6 @@
 # Cortez OS
 
-<img src="./img/demo.png">
+<img src="./img/demo.gif">
 
 ## Requisitos
 
