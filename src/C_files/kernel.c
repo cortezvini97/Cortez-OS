@@ -1,10 +1,10 @@
-#include "screen.h"
 #include "keyboard.h"
-#include "string.h"
 
 void main_kernel(){
     clearScreen();
     print("Welcome to Cortez OS\n");
+    cursorX = 2;
+    cursorY = 2;
     while (1)
     {
         print("\nCORTEZ> ");

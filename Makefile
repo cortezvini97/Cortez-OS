@@ -19,12 +19,12 @@ compileAsm:
 
 compileC:
 	for file in $(CSRC) ; do \
-		gcc $(CFLAGS) src/C_files/includes src/C_files/$$file.c -o build/$$file.o ; \
+		gcc $(CFLAGS) src/C_files/includes src/C_files/$$file.c -o build/$$file.o -ffreestanding; \
 	done
 
 linkerFiles:
 	mkdir -p dist
-	ld ${LinkFLAGS} link.ld -o cortezos/boot/kernel.bin build/main.o build/kernel.o
+	ld ${LinkFLAGS} link.ld -o cortezos/boot/kernel.bin build/main.o build/kernel.o build/system.o build/string.o build/screen.o build/keyboard.o
 
 buildIso:
 	grub-mkrescue -o dist/cortezos.iso cortezos/
