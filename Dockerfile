@@ -1,6 +1,28 @@
-FROM vinicortez/asm_c_developer:latest
+FROM ubuntu:20.04
 
-COPY . /root/env
-WORKDIR /root/env
+ENV DEBIAN_FRONTEND noninteractive
 
-CMD ["make"]
+RUN dpkg --add-architecture i386
+
+RUN apt update && apt install -y \
+    build-essential \
+    g++-multilib \
+    gcc-multilib \
+    gdb \
+    ghex \
+    git \
+    grub2-common \
+    grub-pc-bin \
+    lcov \
+    libgtest-dev:i386 \
+    nasm \
+    qemu-system-i386 \
+    xorriso \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists
+
+
+
+
+WORKDIR /cortez

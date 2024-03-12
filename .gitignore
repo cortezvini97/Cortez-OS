@@ -1,4 +1,4 @@
 build
 dist
-cortezos/boot/kernel.bin
-.vscode
+cortezos
+.vscode/*

@@ -21,12 +21,6 @@
     ./build.ps1 --compile
 ````
 
-## Run Kernel mode
-
-```powershell
-    ./build.ps1 --runkernelmode
-````
-
 ## run Iso
 
 ```powershell
