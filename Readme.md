@@ -17,6 +17,10 @@
 
 ## Limpar Projeto
 
+```bash
+./configure --clean
+```
+
 ## Compilar
 
 ```bash
