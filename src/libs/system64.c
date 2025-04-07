@@ -1,4 +1,4 @@
-#include "system.h"
+#include "system64.h"
 
 extern uint8 system_inportb(uint16 _port);
 extern void system_outportb(uint16 _port, uint8 _data);

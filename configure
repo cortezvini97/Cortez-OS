@@ -1,0 +1,70 @@
+#!/bin/bash
+
+prepare_environment() {
+    echo "Atualizando pacotes e instalando dependências..."
+    sudo apt update && sudo apt install -y \
+        build-essential \
+        g++ \
+        gcc \
+        gdb \
+        libncurses-dev \
+        ghex \
+        git \
+        grub2-common \
+        grub-pc-bin \
+        lcov \
+        libgtest-dev \
+        nasm \
+        xorriso \
+        python3 \
+        python3-dev \
+        python3-pip \
+        qemu-kvm \
+        qemu-system-x86 \
+        qemu-utils \
+        bridge-utils \
+        libvirt-daemon-system \
+        libvirt-clients \
+        crosscompiler-i686 \
+        crosscompiler-x86-64
+
+
+    echo "Ambiente preparado com sucesso!"
+}
+
+
+cleanProject(){
+    make clean
+    rm -rf makefile
+    rm -rf main
+}
+
+
+build_project() {
+    # Obter a versão exata do Python
+    PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+    echo "Versão do Python: $PYTHON_VERSION"
+
+    # Compilação normal com GCC padrão
+    gcc ./build_project/main.c ./build_project/shell_code.c -o main \
+        -I/usr/include/python$PYTHON_VERSION \
+        -lpython$PYTHON_VERSION \
+        -lncurses -lpanel \
+        -I ./build_project/inc -Wall
+
+    # Executar se a compilação for bem-sucedida
+    if [ $? -eq 0 ]; then
+        echo "Compilação bem-sucedida, executando o programa..."
+        ./main
+    else
+        echo "Erro na compilação."
+    fi
+}
+
+if [ "$1" == "--prepare" ]; then
+    prepare_environment
+elif [ "$1" == "--clean" ]; then
+    cleanProject
+else
+    build_project
+fi

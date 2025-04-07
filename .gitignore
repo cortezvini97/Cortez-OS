@@ -1,4 +1,5 @@
-build
-dist
-cortezos
-.vscode/*
+/build/*
+/cortezos/*
+/dist/*
+/main
+/.vscode

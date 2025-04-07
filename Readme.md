@@ -3,29 +3,37 @@
 <img src="./img/demo.gif">
 
 ## Requisitos
-
-- Docker
 - Qemu
 <br><br>
 # Build Project
 
-## Compilar e executar
 
-```powershell
-    ./build.ps1 --all
-````
+## Preparar
+
+```bash
+./configure --prepare
+./configure
+```
+
+## Limpar Projeto
 
 ## Compilar
 
-```powershell
-    ./build.ps1 --compile
-````
+```bash
+    make build
+```
 
-## run Iso
+## Executar
 
-```powershell
-    ./build.ps1 --runkerneliso
-````
+```bash
+    make run
+```
+
+## Limpar
+
+```bash
+    make clean
+```
 
 
 
