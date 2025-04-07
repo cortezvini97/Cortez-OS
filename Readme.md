@@ -24,19 +24,19 @@
 ## Compilar
 
 ```bash
-    make build
+make build
 ```
 
 ## Executar
 
 ```bash
-    make run
+make run
 ```
 
 ## Limpar
 
 ```bash
-    make clean
+make clean
 ```
 
 
